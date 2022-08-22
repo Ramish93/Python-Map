@@ -21,5 +21,7 @@ fg= folium.FeatureGroup(name='My Map')
 for lt, ln, el in zip(lat, lon, elev):
     fg.add_child(folium.Marker(location=[lt, ln], popup=f'elevation of volcano is: {str(el)} m', icon=folium.Icon(color= color(el) )))
 
+fg.add_child(folium.GeoJson(data=(open('world.json', 'r',encoding='UTF-8-sig').read())))
+
 map.add_child(fg)
 map.save('Map1.html')
